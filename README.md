@@ -11,9 +11,15 @@ should just report an error.
 
 ```
 sudo su -
+pkg install fusefs-libs3 bzip2 cmake gcc git
+kldload fusefs
 git clone https://github.com/iairu/apfs-fuse-freebsd.git
 cd apfs-fuse-freebsd
+git submodule init
+git submodule update
+mkdir build
 cd build
+cmake ..
 make
 make install # will install apfs-fuse and apfsutil binaries
 ```
@@ -36,3 +42,5 @@ run
 backtrace
 quit
 ```
+
+ran using: `gdb -x gdb_script apfs-fuse-freebsd/build/apfs-fuse`
