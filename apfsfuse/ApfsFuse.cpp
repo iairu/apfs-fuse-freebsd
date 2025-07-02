@@ -37,6 +37,11 @@
 #include <fuse/fuse.h>
 #include <fuse/fuse_lowlevel.h>
 #endif
+#if defined(__FreeBSD__)
+#include <fuse.h>
+#include <fuse_lowlevel.h>
+#endif
+#include <unistd.h>
 
 #include <getopt.h>
 
